@@ -1,0 +1,207 @@
+body {
+    font-family: Arial, sans-serif;
+    background: url('/static/images/filesharing.jpg') no-repeat center center fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px 20px;
+    color: white;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.content {
+    text-align: center;
+    margin-top: 50px;
+}
+
+input[type="file"], input[type="text"], input[type="password"] {
+    padding: 10px;
+    margin: 5px;
+    width: 200px;
+}
+
+button {
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+a {
+    color: #4CAF50;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 10px 0;
+}
+/* General page styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+}
+
+/* Navbar styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    background-color: #343a40;
+    color: white;
+    padding: 10px 20px;
+}
+
+.navbar .navbar-left {
+    font-size: 24px;
+}
+
+.navbar .navbar-right a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 18px;
+}
+
+.navbar .navbar-right a:hover {
+    text-decoration: underline;
+}
+
+/* Content styling */
+.content {
+    padding: 20px;
+    min-height: 400px;
+}
+
+/* Hero Section */
+.hero-section {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.hero-section h1 {
+    font-size: 36px;
+    color: #343a40;
+}
+
+.hero-section p {
+    font-size: 18px;
+    color: #6c757d;
+}
+
+/* Footer Styling */
+.footer {
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+.register-form {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.register-form h2 {
+    font-size: 24px;
+    color: #343a40;
+    margin-bottom: 20px;
+}
+
+.register-form label {
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.register-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.register-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.register-form button:hover {
+    background-color: #218838;
+}
+/* Ensure the table is responsive */
+.file-table {
+    width: 90%;
+    margin: 0 auto;
+    border-collapse: collapse;
+    font-family: Arial, sans-serif;
+    margin-top: 20px;
+}
+
+.file-table th, .file-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #b82e2e;
+}
+
+.file-table th {
+    background-color: #3b25b9;
+    font-size: 1.2em;
+}
+
+.file-table td a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.file-table td a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive design for small screens */
+@media screen and (max-width: 768px) {
+    .file-table {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    .file-table th, .file-table td {
+        padding: 8px 10px;
+    }
+}

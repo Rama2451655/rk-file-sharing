@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RK File Sharing</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="navbar-left">
+            <a href="/" class="navbar-brand">RK File Sharing</a>
+        </div>
+        <div class="navbar-right">
+            {% if 'username' in session %}
+                <!-- If logged in, show these links -->
+                <a href="{{ url_for('upload_file') }}">Upload Files</a>
+                <a href="{{ url_for('dashboard') }}">Available Files</a>
+                <a href="{{ url_for('about') }}">About Us</a>
+                <a href="{{ url_for('logout') }}">Logout</a>
+            {% else %}
+                <!-- If not logged in, show these links -->
+                <a href="{{ url_for('register') }}">Register</a>
+                <a href="{{ url_for('login') }}">Login</a>
+                <a href="{{ url_for('dashboard') }}">Available Files</a>
+                <a href="{{ url_for('about') }}">About Us</a>
+            {% endif %}
+        </div>
+    </nav>
+
+    <!-- Main content section -->
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <!-- Footer with website details -->
+    <footer class="footer">
+        <p>&copy; {{ current_year }} RK File Sharing. All rights reserved.</p>
+    </footer>
+</body>
+</html>
