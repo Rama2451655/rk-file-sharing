@@ -1,0 +1,24 @@
+{% extends 'layout.html' %}
+
+{% block content_folders %}
+    {% if file.filetype == "application/zip" %}
+        <h2>Folders in the ZIP File</h2>
+        <h3>{{ file.filename }}</h3>
+        
+        {% if folders %}
+            <ul>
+            {% for folder in folders %}
+                <li>
+                    {{ folder }}
+                    <a href="{{ url_for('download_folder', folder_name=folder, file_id=file.id) }}">Download Folder</a>
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p>No folders found in this zip file.</p>
+        {% endif %}
+        
+        <br><br>
+        <a href="{{ url_for('dashboard') }}">Go Back</a>
+    {% endif %}
+{% endblock %}

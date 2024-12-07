@@ -1,0 +1,21 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<h2>Contents of Folder: {{ folder.folder_name }}</h2>
+
+<ul>
+    {% if files %}
+        {% for file in files %}
+            <li>{{ file }}</li> <!-- Display the files in the folder -->
+        {% endfor %}
+    {% else %}
+        <p>No files in this folder.</p>
+    {% endif %}
+</ul>
+
+<!-- Correctly reference 'folder_id' to download or delete the folder -->
+<a class="btn btn-success" href="{{ url_for('download_folder', folder_id=folder.id) }}">Download Folder</a>
+<a class="btn btn-danger" href="{{ url_for('delete_folder', folder_id=folder.id) }}">Delete Folder</a>
+ <br><br>
+<a href="{{ url_for('index') }}">Back to Dashboard</a>
+{% endblock %}

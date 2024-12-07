@@ -1,40 +1,115 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-    <div class="content">
-        <h1>Welcome {{ session['username'] }}</h1>
-        
-        <h2>Available Files</h2>
-        
-        <!-- Table to display files -->
-        <table class="file-table">
-            <thead>
-                <tr>
-                    <th>ID</th>
-                    <th>Filename</th>
-                    <th>Filetype</th>
-                    <th>Uploader</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for file in files %}
-                    <tr>
-                        <td>{{ file.id }}</td>
-                        <td><a href="{{ url_for('download_file', file_id=file.id) }}">{{ file.filename }}</a></td>
-                        <td>{{ file.filetype }}</td>
-                        <td>{{ file.uploader }}</td>
-                        <td>
-                            {% if file.uploader == session['username'] %}
-                                <a href="{{ url_for('delete_file', file_id=file.id) }}">Delete</a>
-                            {% else %}
-                                <a href="{{ url_for('download_file', file_id=file.id) }}">Download</a>
-                            {% endif %}
-                        </td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-    </div>
-{% endblock %}
+<h2>Available Files</h2>
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Filename</th>
+            <th>Filetype</th>
+            <th>Uploader</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for file in files %}
+        <tr>
+            <td>{{ file.id }}</td>
+            <td>{{ file.filename }}</td>
+            <td>{{ file.filetype }}</td>
+            <td>{{ file.uploader }}</td>
+            <td>
+                {% if file.uploader == session['username'] %}
+                    <a class="btn btn-danger" href="{{ url_for('delete_file', file_id=file.id) }}">Delete</a>
+                {% endif %}
+                <a class="btn btn-success" href="{{ url_for('download_file', file_id=file.id) }}">Download File</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
 
+<br><br>
+
+<h2>Available Folders</h2>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Folder ID</th>
+            <th>Folder Name</th>
+            <th>Uploader</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for folder in folders %}
+        <tr>
+            <td>{{ folder.id }}</td>
+            <td>{{ folder.folder_name }}</td>
+            <td>{{ folder.uploader }}</td>
+            <td>
+                <!-- Open Folder -->
+                <a href="{{ url_for('open_folder', folder_id=folder.id) }}">Open Folder</a>
+ |
+                
+                <!-- Download Folder -->
+                 <a class="btn btn-success" href="{{ url_for('download_folder', folder_id=folder.id) }}">Download Folder</a>
+
+
+                <!-- Delete Folder -->
+                <form action="{{ url_for('delete_folder', folder_id=folder.id) }}" method="POST" style="display:inline;">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% else %}
+        <tr>
+            <td colspan="4">No folders found.</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a class="btn btn-success" href="{{ url_for('index') }}">Go Back</a>
+
+<br><br>
+<a class="btn btn-info" href="{{ url_for('upload') }}">Upload More</a>
+
+<style>
+    table {
+        width: 80%;
+        margin: auto;
+        border-collapse: collapse;
+    }
+    th, td {
+        text-align: left;
+        padding: 10px;
+        border: 1px solid black;
+        color: blue;
+        font-size: 25px;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    h2 {
+        color: white;
+        background-color: blue;
+        width: fit-content;
+        margin: auto;
+        padding: 5px 10px;
+        border-radius: 5px;
+    }
+    .btn-danger {
+        background-color: red;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+    .btn-danger:hover {
+        background-color: darkred;
+    }
+</style>
+
+{% endblock %}

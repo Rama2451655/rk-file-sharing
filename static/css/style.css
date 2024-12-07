@@ -2,6 +2,7 @@ body {
     font-family: Arial, sans-serif;
     background: url('/static/images/filesharing.jpg') no-repeat center center fixed;
     background-size: cover;
+    
     margin: 0;
     padding: 0;
     color: white;
@@ -204,4 +205,90 @@ body {
     .file-table th, .file-table td {
         padding: 8px 10px;
     }
+}
+/* Background image with blur effect */
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; /* Cover the entire viewport height */
+    background-image: url('your-image-url.jpg'); /* Replace with your background image */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    filter: blur(8px); /* Apply blur effect */
+    z-index: -1; /* Ensure background is behind the content */
+}
+
+/* Content styling */
+.content {
+    position: relative;
+    z-index: 1; /* Keep the content above the blurred background */
+    padding: 20px;
+    color: white; /* Text color for contrast with the background */
+}
+
+/* Optional: Text shadow for better visibility */
+h1, h2 {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+/* Style for the table */
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+}
+
+/* Style for table cells */
+table td, table th {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+/* Hover effect for table rows */
+table tr:hover {
+    background-color: #f5f5f5;  /* Change the row background color on hover */
+}
+
+/* Hover effect for individual cells */
+table td:hover {
+    background-color: #e0e0e0;  /* Change cell background color on hover */
+}
+
+/* Optional: Styling for table header */
+table th {
+    background-color: #333;
+    color: white;
+}
+.flash-messages ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 10px 0;
+}
+
+.flash-messages li {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+.flash-messages .success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.flash-messages .error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.flash-messages .warning {
+    background-color: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeeba;
 }
